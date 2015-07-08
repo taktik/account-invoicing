@@ -100,8 +100,7 @@ class invoice_merge(models.TransientModel):
         aw_obj = self.env['ir.actions.act_window']
         ids = self.env.context.get('active_ids', [])
         invoices = inv_obj.browse(ids)
-        allinvoices = invoices.do_merge(keep_references=self.keep_references,
-                                        date_invoice=self.date_invoice)
+        allinvoices = invoices.do_merge(keep_references=self.keep_references, date_invoice=self.date_invoice)
         xid = {
             'out_invoice': 'action_invoice_tree1',
             'out_refund': 'action_invoice_tree3',

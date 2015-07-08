@@ -144,9 +144,10 @@ class account_invoice(models.Model):
                     # merge the line with an existing line
                     o_line['quantity'] += invoice_line.quantity * \
                         uos_factor / o_line['uom_factor']
+                    o_line['initial_amount_total'] += invoice_line.initial_amount_total
                 else:
                     # append a new "standalone" line
-                    for field in ('quantity', 'uos_id'):
+                    for field in ('quantity', 'uos_id', 'initial_amount_total'):
                         field_val = getattr(invoice_line, field)
                         if isinstance(field_val, browse_record):
                             field_val = field_val.id
