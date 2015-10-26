@@ -147,7 +147,7 @@ class account_invoice(models.Model):
                     o_line['initial_amount_total'] += invoice_line.initial_amount_total
                 else:
                     # append a new "standalone" line
-                    for field in ('quantity', 'uos_id', 'initial_amount_total'):
+                    for field in ('quantity', 'uos_id', 'initial_amount_total', 'company_on_behalf_of'):
                         field_val = getattr(invoice_line, field)
                         if isinstance(field_val, browse_record):
                             field_val = field_val.id
